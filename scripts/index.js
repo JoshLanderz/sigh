@@ -16,6 +16,8 @@ mostRecentProjectBtn.addEventListener("click", function() {
 });
 
 
+document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
 
 	// const obj = document.querySelectorAll('.p1');
     

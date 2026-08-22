@@ -430,6 +430,40 @@ function locationTextAnimation() {
 locationTextAnimation();
 
 
+function socialMediaTextAnimation() {
+    let socialMediaElements = document.querySelectorAll(".social-media-links");
+
+    socialMediaElements.forEach((socialMediaElement) => {
+
+        let socialMediaText = socialMediaElement.querySelector(".social-media-text");
+
+        gsap.set(socialMediaText, {
+            opacity: 0,
+            x: -100
+        });
+
+        socialMediaElement.addEventListener('mouseenter', () => {
+            gsap.to(socialMediaText, {
+                opacity: 0.7,
+                x: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        socialMediaElement.addEventListener('mouseleave', () => {
+            gsap.to(socialMediaText, {
+                opacity: 0,
+                x: -100,
+                duration: 0.5,
+                ease: "power2.in"
+            });
+        });
+
+    });
+}
+
+socialMediaTextAnimation();
 
 
 

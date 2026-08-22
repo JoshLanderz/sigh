@@ -40,7 +40,7 @@
 
     /*Shadows*/
     --nav-link-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    --gray-section-top-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+    --gray-section-top-shadow: 12px 12px 400px #2f37764c;
 
     --outline-green: 2px solid green;
     --outline-red: 2px solid red;
@@ -64,7 +64,6 @@
 }
 
 
-
 img {
     user-drag: none;
     -webkit-user-drag: none;
@@ -78,7 +77,6 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    box-sizing: border-box;
     scroll-behavior: smooth;
     scroll-padding: 100px;
     font-family: var(--ff-Nunito-Sans);
@@ -195,6 +193,7 @@ header {
     font-weight: 400;
     line-height: 100px;
     color: #2f3776;
+    font-family: var(--ff-Averia-Sans-Libre);
     /* background: var(--main-text-gradient);
     -moz-background-clip: text;
     -webkit-background-clip: text;
@@ -211,6 +210,7 @@ header {
     background: var(--button-gradient);
     -moz-background-clip: text;
     -webkit-background-clip: text;
+    font-family: var(--ff-Averia-Sans-Libre);
     -webkit-text-fill-color: transparent;
 }
 
@@ -222,6 +222,8 @@ header {
 
 .hero-profile-pitch {
     font-size: 20px;
+    font-weight: 300;
+    opacity: 0.8;
 }
 
 
@@ -245,6 +247,7 @@ header {
     padding: 12px 20px;
     color: white;
     gap: 8px;
+    font-family: var(--ff-Averia-Sans-Libre);
     @supports (corner-shape: squircle) {
         border-radius: 5px;
         corner-shape: squircle;
@@ -656,6 +659,7 @@ section {
     z-index: 1;
     font-weight: 400;
     font-size: clamp(1rem, 0.5123rem + 2.7869vw, 3.125rem);
+    font-family: var(--ff-Averia-Sans-Libre);
     background: var(--img-gradient);
     -moz-background-clip: text;
     -webkit-background-clip: text;
@@ -951,21 +955,30 @@ section {
 }
 
 
+/* ================================
+   FEATURED PROJECTS
+================================ */
+
 #featured-projects-section {
-    background-size: cover;
-    margin: 10rem 16rem;
+    margin: 3rem 16rem;
+    padding: 0;
     display: grid;
     place-content: center;
-    gap: 5rem;
-    padding: 0;
+    gap: 2rem;
+    background-size: cover;
 }
+
+
+/* ================================
+   PROJECT CONTAINER
+================================ */
 
 .featured-projects-element-container {
     display: flex;
     flex-direction: column;
+    gap: 6rem;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
-    gap: 6rem;
 }
 
 .featured-projects-element-container.fade-out {
@@ -973,66 +986,45 @@ section {
 }
 
 .featured-projects-element-container.reversed {
-  flex-direction: column-reverse;
+    flex-direction: column-reverse;
 }
 
-.featured-projects-element-content {
-    display: flex;
-    align-items: center;
+
+/* ================================
+   PROJECT
+================================ */
+
+.featured-projects-element {
     width: 100%;
+    display: grid;
+    place-content: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+
+/* ================================
+   PROJECT CONTENT
+================================ */
+
+.featured-projects-element-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem;
 }
 
-.featured-projects-element {
-    opacity: 0;
-    transform: scale(0.5);
-    display: grid;
-    width: 100%;
-    border-radius: 15px;
-    place-content: center;
-    border-radius: 15px;
-    border: 2px solid rgb(255, 255, 255);
-}
 
-.featured-projects-element-img-wrapper {
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    position: relative;
-    border-radius: 5px;
-    padding: 4px 12px 0px 12px;
-    background-color: var(--external-clr-beige);
-    object-fit: cover;
-}
-
-.bright-beginnings {
-    padding: 12px 12px 0px 12px;
-    background-color: var(--external-clr-amber);
-}
-
-.frontend-soundz {
-    padding: 12px 12px 0px 12px;
-    background-position: center;
-    background-size: 200%;
-    background-color: var(--external-clr-fez-primary);
-    background-image: var(--external-clr-fez-gradient);
-}
-
-.featured-project-img {
-    border-radius: 5px;
-}
-
-.featured-projects-element-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
+/* ================================
+   PROJECT INFO
+================================ */
 
 .featured-projects-element-content-info {
+    min-width: 0;
     display: grid;
-    gap: 1rem;
+    align-self: center;
 }
 
 .featured-projects-element-content-info h1 {
@@ -1040,7 +1032,59 @@ section {
     -moz-background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: var(--ff-Averia-Sans-Libre);
 }
+
+.featured-projects-element-content-info p:nth-of-type(1) {
+    font-weight: 400;
+    font-family: var(--ff-Averia-Sans-Libre);
+    opacity: 0.8;
+    margin-top: 14px;
+}
+
+.featured-projects-element-content-info p:nth-of-type(2) {
+    font-weight: 400;
+    line-height: 22px;
+    opacity: 0.8;
+    margin-block: 14px;
+}
+
+
+/* ================================
+   PROJECT IMAGE
+================================ */
+
+.featured-projects-element-img-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: var(--gray-section-top-shadow);
+}
+
+.featured-project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+
+.bright-beginnings {
+    padding: 12px 12px 0;
+}
+
+.frontend-soundz {
+    padding: 12px 12px 0;
+    background-position: center;
+    background-size: 200%;
+}
+
+
+
+/* ================================
+   PROJECT LABELS
+================================ */
 
 .featured-projects-element-label-wrapper {
     display: flex;
@@ -1049,11 +1093,20 @@ section {
 
 .featured-projects-element-label {
     font-weight: 700;
-    background: var(--img-gradient);
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 12px;
+    background: var(--button-gradient);
+    color: white;
+    border-radius: 150px;
+    width: max-content;
+    height: max-content;
+    padding: 4px 10px;
 }
+
+/* ================================
+   PROJECT-SPECIFIC STYLES
+================================ */
+
+
 
 #get-in-touch-section {
     height: 100vh;
